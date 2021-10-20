@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduliz.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 12:47:45 by javigarc          #+#    #+#             */
-/*   Updated: 2021/10/20 19:02:52 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/10/20 19:27:43 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int		ft_isascii(int c);
 int		ft_isprint(int c);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+size_t	ft_strlcat(char *dest, const char *scr, size_t size);
 
 int main () {
    int var1 = 'Z';
@@ -179,6 +180,31 @@ printf("\n ** ft_strlcpy **\n");
   	dd = strlcpy(dest, sour,15);
 	printf("\nDESPUES\n%s y el tamaño %u\n", dest, dd);
 
+	printf("\n ** ft_strlcat **\n");
+	unsigned int res1, res2;
+	unsigned int com1, com2;
+
+	char string1[150] ={"Esta es una string\0"};
+	char string2[25] ={" a la que añadimos esta\0"};
+	char string3[14] ={" y esta otra.\0"};
+
+	char s1[150] ={"Esta es una string\0"};
+	char s2[25] ={" a la que añadimos esta\0"};
+	char s3[14] ={" y esta otra.\0"};
+
+	printf("Primero: %s \n ", string1);
+	res1=ft_strlcat(string1,string2,150);
+	printf("añadimos: %s \n ", string1);
+	res2=ft_strlcat(string1,string3,150);
+	printf("lo útlimo: %s \n ", string1);
+	printf("y nos devuelve - %u - y - %u -\n", res1, res2);
+	printf("S: %s \n ", s1);
+	com1=strlcat(s1,s2,150);
+	printf("S2: %s \n ", s1);
+	com2=strlcat(s1,s3,150);
+	printf("S3: %s \n ", s1);
+    printf("y nos devuelve - %u - y - %u -\n", com1, com2);
+	return(0);
 
 	  return(0);
 }
