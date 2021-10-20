@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduliz.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 12:47:45 by javigarc          #+#    #+#             */
-/*   Updated: 2021/10/20 19:27:43 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/10/20 20:15:45 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int		ft_isprint(int c);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 size_t	ft_strlcat(char *dest, const char *scr, size_t size);
+int		ft_toupper(int c);
+int		ft_tolower(int c);
 
 int main () {
    int var1 = 'Z';
@@ -157,12 +159,12 @@ printf("\n** ft_isalnum **\n");
    printf("\n ** ft_strlen **\n");
    printf("Según ft es de %zu, según la oficial es de %lu.\n", ft_strlen(strleng), strlen(strleng));
 
-//	char *strmemset = "a cambiar esta string";
-//	printf("\n** ft_memset **\n");
-//	printf("%s\n",strmemset);
-//	memset(strmemset,'s', 3);
-//	printf("%s\n",strmemset);
-//
+	char strmemset[22] = "A cambiar esta string";
+	printf("\n** ft_memset **\n");
+	printf("%s\n",strmemset);
+	memset(strmemset,'&', 7);
+	printf("%s\n",strmemset);
+
 char source[35]={"Copiamos esto es la cadena source\0"};
 	char sour[35]={"Copiamos esto es la cadena source\0"};
 	char destino[20]={"esta123456789\0"};
@@ -204,7 +206,29 @@ printf("\n ** ft_strlcpy **\n");
 	com2=strlcat(s1,s3,150);
 	printf("S3: %s \n ", s1);
     printf("y nos devuelve - %u - y - %u -\n", com1, com2);
-	return(0);
 
+printf("\n ** ft_toupper **\n");
+	int toup = 'C';
+	int toup1 = '\t';
+	int toup2 = ' ';
+	int	toup3 = 'd';
+
+	printf("%c, con la mia -%c- con la oficial -%c- \n", toup, ft_toupper(toup), toupper(toup));
+	printf("%c, con la mia -%c- con la oficial -%c- \n", toup1, ft_toupper(toup1), toupper(toup1));
+	printf("%c, con la mia -%c- con la oficial -%c- \n", toup2, ft_toupper(toup2), toupper(toup2));
+	printf("%c, con la mia -%c- con la oficial -%c- \n", toup3, ft_toupper(toup3), toupper(toup3));
+	
+	printf("\n ** ft_tolower **\n");
+	int tolo = 'C';
+	int tolo1 = '\t';
+	int tolo2 = ' ';
+	int	tolo3 = 'd';
+
+	printf("%c, con la mia -%c- con la oficial -%c- \n", tolo, ft_tolower(tolo), tolower(tolo));
+	printf("%c, con la mia -%c- con la oficial -%c- \n", tolo1, ft_tolower(tolo1), tolower(tolo1));
+	printf("%c, con la mia -%c- con la oficial -%c- \n", tolo2, ft_tolower(tolo2), tolower(tolo2));
+	printf("%c, con la mia -%c- con la oficial -%c- \n", tolo3, ft_tolower(tolo3), tolower(tolo3));
+	 
+	 
 	  return(0);
 }
