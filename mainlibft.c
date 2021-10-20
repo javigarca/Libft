@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduliz.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 12:47:45 by javigarc          #+#    #+#             */
-/*   Updated: 2021/10/20 20:15:45 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/10/20 20:50:38 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 size_t	ft_strlcat(char *dest, const char *scr, size_t size);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+char	*ft_strnstr(const char *hayctack, const char *needle, size_t len);
 
 int main () {
    int var1 = 'Z';
@@ -229,6 +230,29 @@ printf("\n ** ft_toupper **\n");
 	printf("%c, con la mia -%c- con la oficial -%c- \n", tolo2, ft_tolower(tolo2), tolower(tolo2));
 	printf("%c, con la mia -%c- con la oficial -%c- \n", tolo3, ft_tolower(tolo3), tolower(tolo3));
 	 
+	printf("\n ** ft_strnstr **\n");
+	char	*str;
+	char	*to_find;
+
+	str = "Palcabras oso devolver string char int integral integerdos peluche";
+	to_find = "string\0";
+	printf("\n%s\n", ft_strnstr(str, to_find, 10));
+	printf("%s\n****\n", strnstr(str, to_find, 10));
+	to_find = "";
+	printf("%s\n", ft_strnstr(str, to_find, 20));
+	printf("%s\n****\n", strnstr(str, to_find, 20));
+	to_find = "int";
+	printf("%s\n", ft_strnstr(str, to_find, 40));
+	printf("%s\n****\n", strnstr(str, to_find, 40 ));
+	to_find = "char";
+	printf("%s\n", ft_strnstr(str, to_find, 60));
+	printf("%s\n****\n", strnstr(str, to_find, 60));
+	to_find = "intege";
+	printf("%s\n", ft_strnstr(str, to_find, 100));
+	printf("%s\n****\n", strnstr(str, to_find, 100));
+	to_find = "cabra";
+	printf("%s\n", ft_strnstr(str, to_find, 10));
+	printf("%s\n****\n", strnstr(str, to_find, 10));
 	 
 	  return(0);
 }
