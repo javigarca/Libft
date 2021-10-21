@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduliz.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 12:47:45 by javigarc          #+#    #+#             */
-/*   Updated: 2021/10/20 20:50:38 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/10/21 10:53:51 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include <stdlib.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -26,6 +27,7 @@ size_t	ft_strlcat(char *dest, const char *scr, size_t size);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 char	*ft_strnstr(const char *hayctack, const char *needle, size_t len);
+int		ft_atoi(const char *str);
 
 int main () {
    int var1 = 'Z';
@@ -253,6 +255,61 @@ printf("\n ** ft_toupper **\n");
 	to_find = "cabra";
 	printf("%s\n", ft_strnstr(str, to_find, 10));
 	printf("%s\n****\n", strnstr(str, to_find, 10));
-	 
+	
+	printf("\n ** ft_atoi **\n");
+	char sa1[] = "++1234ab567"; // -
+	char sa2[] = "+2147483648";   // -
+	char sa3[] = "-a22";           // + Empty
+	char sa4[] = "+2147483647";// -
+	char sa5[] = "42\n";       // -
+	char sa6[] = "-23420asdfasf";
+	char sa7[] = "   -14545";
+	char sa8[] = "--a";
+	char sa9[] = "++--42\n";       //
+	char sa10[] = "42\n";       //
+
+	int result, resultmio;
+
+    result = atoi(sa1);
+    resultmio = ft_atoi(sa1);
+	printf("1-Result: %d\n", result);
+	printf("Resmio: %d\n", resultmio);
+    result = atoi(sa2);
+    resultmio = ft_atoi(sa2);
+	printf("2-Result: %d\n", result);
+	printf("Resmio: %d\n", resultmio);
+    result = atoi(sa3);
+    resultmio = ft_atoi(sa3);
+	printf("3-Result: %d\n", result);
+	printf("Resmio: %d\n", resultmio);
+    result = atoi(sa4);
+    resultmio = ft_atoi(sa4);
+	printf("4-Result: %d\n", result);
+	printf("Resmio: %d\n", resultmio);
+    result = atoi(sa5);
+    resultmio = ft_atoi(sa5);
+	printf("5-Result: %d\n", result);
+	printf("Resmio: %d\n", resultmio);
+    result = atoi(sa6);
+    resultmio = ft_atoi(sa6);
+	printf("6-Result: %d\n", result);
+	printf("Resmio: %d\n", resultmio);
+    result = atoi(sa7);
+    resultmio = ft_atoi(sa7);
+	printf("7-Result: %d\n", result);
+	printf("Resmio: %d\n", resultmio);
+    result = atoi(sa8);
+    resultmio = ft_atoi(sa8);
+	printf("8-Result: %d\n", result);
+	printf("Resmio: %d\n", resultmio);
+    result = atoi(sa9);
+    resultmio = ft_atoi(sa9);
+	printf("9-Result: %d\n", result);
+	printf("Resmio: %d\n", resultmio);
+    result = atoi(sa10);
+    resultmio = ft_atoi(sa10);
+	printf("10-Result: %d\n", result);
+	printf("Resmio: %d\n", resultmio);
+
 	  return(0);
 }
