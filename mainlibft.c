@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduliz.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 12:47:45 by javigarc          #+#    #+#             */
-/*   Updated: 2021/10/21 13:45:10 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/10/21 16:34:10 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,15 @@ const char	*ft_strchr(const char *str, int c);
 const char	*ft_strrchr(const char *str, int c);
 int 		ft_strncmp(const char *s1, const char *s2, size_t n);
 void		*ft_memset(void *str, int c, size_t n);
+void		ft_bzero(void *str, size_t n);
+
 
 int main () {
    int var1 = 'Q';
    int var2 = '4';
    int var3 = '\t';
    int var4 = ' ';
-
+///////////////////////////////
   printf("** ft_isalpha **\n");
    if(ft_isalpha(var1) ) {
       printf("var1 = |%c| is an alphabet\n", var1 );
@@ -67,7 +69,7 @@ int main () {
       printf("var4 = |%i| is not an alphabet\n", var4 );
       printf("var4 = |%c| is not an alphabet\n", var4 );
    }
-
+//////////////////////////////////
    int digito1 = 'D';
    int digito2 = '0';
    printf("\n** ft_isdigit **\n");
@@ -82,7 +84,7 @@ int main () {
    } else {
       printf("digito2 = |%c| is not a digit\n", digito2 );
    }
-
+//////////////////////////////////////////////////
    int alnum1 = 'd';
    int alnum2 = '2';
    int alnum3 = '\t';
@@ -90,7 +92,7 @@ int main () {
 printf("\n** ft_isalnum **\n");
 
    if( ft_isalnum(alnum1) ) {
-      printf("alnumr1 = |%c| is alphanumeric\n", alnum1 );
+      printf("alnum1 = |%c| is alphanumeric\n", alnum1 );
    } else {
       printf("alnum1 = |%c| is not alphanumeric\n", alnum1 );
    }
@@ -112,7 +114,7 @@ printf("\n** ft_isalnum **\n");
    } else {
       printf("alnum4 = |%c| is not alphanumeric\n", alnum4 );
    }
-
+///////////////////////////////////////////
 //   int asc1 = 'á';
    int asc2 = '\t';
    int asc3 = ' ';
@@ -132,6 +134,7 @@ printf("\n** ft_isalnum **\n");
    } else {
       printf("asc3 = |%c| is not ascii\n", asc3 );
    }
+///////////////////////////////////////////
   int pr1 = 'k';
    int pr2 = '8';
    int pr3 = '\t';
@@ -161,12 +164,13 @@ printf("\n** ft_isalnum **\n");
    } else {
       printf("pr4 = |%c| can't be printed\n", pr4 );
    }
-	
+/////////////////////////////////////////	
 	char *strleng = "esta frase es de 19";
-   printf("\n ** ft_strlen **\n");
+
+ 	printf("\n ** ft_strlen **\n");
    printf("Según ft es de %zu, según la oficial es de %lu.\n", ft_strlen(strleng), strlen(strleng));
 
-
+////////////////////////////////////////////
 char source[35]={"Copiamos esto es la cadena source\0"};
 	char sour[35]={"Copiamos esto es la cadena source\0"};
 	char destino[20]={"esta123456789\0"};
@@ -183,7 +187,7 @@ printf("\n ** ft_strlcpy **\n");
 		printf("\n Original--%s-- a copiar --%s", dest, sour);
   	dd = strlcpy(dest, sour,15);
 	printf("\nDESPUES\n%s y el tamaño %u\n", dest, dd);
-
+//////////////////////////////////////////////
 	printf("\n ** ft_strlcat **\n");
 	unsigned int res1, res2;
 	unsigned int com1, com2;
@@ -208,7 +212,7 @@ printf("\n ** ft_strlcpy **\n");
 	com2=strlcat(s1,s3,150);
 	printf("S3: %s \n ", s1);
     printf("y nos devuelve - %u - y - %u -\n", com1, com2);
-
+///////////////////////////////////////////
 printf("\n ** ft_toupper **\n");
 	int toup = 'C';
 	int toup1 = '\t';
@@ -219,7 +223,7 @@ printf("\n ** ft_toupper **\n");
 	printf("%c, con la mia -%c- con la oficial -%c- \n", toup1, ft_toupper(toup1), toupper(toup1));
 	printf("%c, con la mia -%c- con la oficial -%c- \n", toup2, ft_toupper(toup2), toupper(toup2));
 	printf("%c, con la mia -%c- con la oficial -%c- \n", toup3, ft_toupper(toup3), toupper(toup3));
-	
+////////////////////////////////////////////////	
 	printf("\n ** ft_tolower **\n");
 	int tolo = 'C';
 	int tolo1 = '\t';
@@ -230,7 +234,7 @@ printf("\n ** ft_toupper **\n");
 	printf("%c, con la mia -%c- con la oficial -%c- \n", tolo1, ft_tolower(tolo1), tolower(tolo1));
 	printf("%c, con la mia -%c- con la oficial -%c- \n", tolo2, ft_tolower(tolo2), tolower(tolo2));
 	printf("%c, con la mia -%c- con la oficial -%c- \n", tolo3, ft_tolower(tolo3), tolower(tolo3));
-	 
+/////////////////////////////////////////////////////	 
 	printf("\n ** ft_strnstr **\n");
 	char	*str;
 	char	*to_find;
@@ -254,7 +258,7 @@ printf("\n ** ft_toupper **\n");
 	to_find = "cabra";
 	printf("%s\n", ft_strnstr(str, to_find, 10));
 	printf("%s\n****\n", strnstr(str, to_find, 10));
-	
+//////////////////////////////////////////////////////////	
 	printf("\n ** ft_atoi **\n");
 	char sa1[] = "++1234ab567"; // -
 	char sa2[] = "+2147483648";   // -
@@ -309,7 +313,7 @@ printf("\n ** ft_toupper **\n");
     resultmio = ft_atoi(sa10);
 	printf("10-Result: %d\n", result);
 	printf("Resmio: %d\n", resultmio);
-
+/////////////////////////////////////////
 	printf("\n ** ft_strchr **\n");
 	char	sstrchr[43] = "Palcabras oso devolver stntegerdos peuBche\0";
 	int 	tofind;
@@ -329,7 +333,7 @@ printf("\n ** ft_toupper **\n");
 	tofind = 'B';
 	printf("%s\n", ft_strchr(sstrchr, tofind));
 	printf("%s\n****\n", strchr(sstrchr, tofind));
-
+///////////////////////////////////////////////////////////////
 	printf("\n ** ft_strrchr **\n");
 	char	srstrchr[43] = "PalcaBras oso devolver stntegerdos peuBche\0";
 	int 	trofind;
@@ -349,7 +353,7 @@ printf("\n ** ft_toupper **\n");
 	trofind = 'B';
 	printf("%s\n", ft_strrchr(srstrchr, trofind));
 	printf("%s\n****\n", strrchr(srstrchr, trofind));
-
+/////////////////////////////////////////////////////////////
 	printf("\n ** ft_strncmp **\n");
 
 	int rres1, rres2, rres3, rres4, ccom1, ccom2, ccom3, ccom4;
@@ -378,15 +382,42 @@ printf("\n ** ft_toupper **\n");
 	printf(" S segunda: %i \n ", ccom2);
 	printf(" S tercera: %i \n ", ccom3);
 	printf(" S vacia: %i \n", ccom4);
-
+//////////////////////////////////////////////////////
 	char strmemset[21] = "A cambiar esta string";
-	char ftstr[21] = "A cambiar esta string";
+//	char ftstr[21] = "A cambiar esta string";
 	printf("\n** ft_memset **\n");
 	printf("Original: %s\n",strmemset);
 	memset(strmemset,'$', 13);
 	printf("con memset: %s\n",strmemset);
-	ft_memset(ftstr, '$', 13);
-	printf("***con ft_: %s\n", ftstr);
+	ft_memset(strmemset, '?', 13);
+	printf("***con ft_: %s\n", strmemset);
+////////////////////////////////////////////////////////////
+	char strbz[40] = "A zeroar esta string";
+ 	char bzstr[40] = "A zeroar esta string";
+	int *memdir;
+	size_t cont, lenbz;
+	printf("\n** ft_bzero **\n");
+	printf("Original: %s\n",strbz);
+	memdir = (int *)&strbz;
+	cont = 0;
+	lenbz = ft_strlen(strbz);
+//	printf("direccion de memoria: %p, valor -> %s\n", memdir, *memdir); 
+	bzero(strbz, 3);
+	printf("con bzero:\n");
+	while (cont < lenbz)
+	{
+		printf("%c", strbz[cont]);
+		cont++;
+	}
+
+	ft_bzero(bzstr, 3);
+	printf("\n**con ft_: %s\n", bzstr);
+	cont = 0;
+	while (cont < lenbz)
+	{
+		printf("%c", bzstr[cont]);
+		cont++;
+	}
 
 return(0);
 }

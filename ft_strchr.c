@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 11:00:12 by javigarc          #+#    #+#             */
-/*   Updated: 2021/10/21 12:08:26 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/10/21 16:22:42 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ const char	*ft_strchr(const char *str, int c)
 			return (&str[i]);
 		i++;
 	}
-	if (str[i++] == c)
+	if (str[i] == c)
 		return (&str[i]);
 	return (0);
 }
