@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduliz.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 12:47:45 by javigarc          #+#    #+#             */
-/*   Updated: 2021/10/21 11:58:35 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/10/21 12:31:22 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int			ft_tolower(int c);
 const char	*ft_strnstr(const char *hayctack, const char *needle, size_t len);
 int			ft_atoi(const char *str);
 const char	*ft_strchr(const char *str, int c);
+const char	*ft_strrchr(const char	*str, int c);
 
 int main () {
    int var1 = 'Q';
@@ -331,6 +332,26 @@ printf("\n ** ft_toupper **\n");
 	tofind = 'B';
 	printf("%s\n", ft_strchr(sstrchr, tofind));
 	printf("%s\n****\n", strchr(sstrchr, tofind));
+
+	printf("\n ** ft_strrchr **\n");
+	char	srstrchr[43] = "PalcaBras oso devolver stntegerdos peuBche\0";
+	int 	trofind;
+
+	trofind = '\0';
+	printf("\n%s\n", ft_strrchr(srstrchr, trofind));
+	printf("%s\n****\n", strrchr(srstrchr, trofind));
+	trofind = 'o';
+	printf("%s\n", ft_strrchr(srstrchr, trofind));
+	printf("%s\n****\n", strrchr(srstrchr, trofind));
+	trofind = 'Z';
+	printf("%s\n", ft_strrchr(srstrchr, trofind));
+	printf("%s\n****\n", strrchr(srstrchr, trofind));
+	trofind = 'P';
+	printf("%s\n", ft_strrchr(srstrchr, trofind));
+	printf("%s\n****\n", strrchr(srstrchr, trofind));
+	trofind = 'B';
+	printf("%s\n", ft_strrchr(srstrchr, trofind));
+	printf("%s\n****\n", strrchr(srstrchr, trofind));
 
 return(0);
 }
