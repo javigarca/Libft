@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/21 15:13:10 by javigarc          #+#    #+#             */
-/*   Updated: 2021/10/21 16:39:48 by javigarc         ###   ########.fr       */
+/*   Created: 2021/10/21 16:53:20 by javigarc          #+#    #+#             */
+/*   Updated: 2021/10/21 17:17:16 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-void	ft_bzero(void *str, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	unsigned char	*swap;
+	unsigned char	*swap2;
 
-	swap = (unsigned char *) str;
+	swap = (unsigned char *) dst;
+	swap2 = (unsigned char *) src;
 	while (n-- > 0)
-		swap[n] = 00;
+		swap[n] = swap2[n];
+	return (dst);
 }

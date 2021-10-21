@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduliz.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 12:47:45 by javigarc          #+#    #+#             */
-/*   Updated: 2021/10/21 16:34:10 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/10/21 17:17:14 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,10 @@ const char	*ft_strrchr(const char *str, int c);
 int 		ft_strncmp(const char *s1, const char *s2, size_t n);
 void		*ft_memset(void *str, int c, size_t n);
 void		ft_bzero(void *str, size_t n);
+void		*ft_memcpy(void *dst, const void *src, size_t n);
 
-
-int main () {
+int main (void)
+{
    int var1 = 'Q';
    int var2 = '4';
    int var3 = '\t';
@@ -396,7 +397,7 @@ printf("\n ** ft_toupper **\n");
  	char bzstr[40] = "A zeroar esta string";
 	int *memdir;
 	size_t cont, lenbz;
-	printf("\n** ft_bzero **\n");
+	printf("\n\n** ft_bzero **\n");
 	printf("Original: %s\n",strbz);
 	memdir = (int *)&strbz;
 	cont = 0;
@@ -418,6 +419,18 @@ printf("\n ** ft_toupper **\n");
 		printf("%c", bzstr[cont]);
 		cont++;
 	}
+//////////////////////////////////////////
+
+   const char acopy[50] = "esta %;-)";
+   char dcopy[50] = "ESTA ES LA MALA";
+   char ftcopy[50] = "ESTA ES OTRA MALA";
+   printf("\n\n ** ft_memcpy **\n");
+   printf("Before memcpy dest = %s\n", dcopy);
+   memcpy(dcopy, acopy, 9);
+   printf("After memcpy dest = %s\n", dcopy);
+   printf("Before ft_memcpy dest = %s\n", ftcopy);
+   ft_memcpy(ftcopy, acopy,9);
+   printf("After ft_memcpy dest = %s\n", ftcopy);
 
 return(0);
 }
