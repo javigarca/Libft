@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduliz.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 12:47:45 by javigarc          #+#    #+#             */
-/*   Updated: 2021/10/21 12:55:12 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/10/21 13:45:10 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int			ft_atoi(const char *str);
 const char	*ft_strchr(const char *str, int c);
 const char	*ft_strrchr(const char *str, int c);
 int 		ft_strncmp(const char *s1, const char *s2, size_t n);
+void		*ft_memset(void *str, int c, size_t n);
 
 int main () {
    int var1 = 'Q';
@@ -165,11 +166,6 @@ printf("\n** ft_isalnum **\n");
    printf("\n ** ft_strlen **\n");
    printf("Según ft es de %zu, según la oficial es de %lu.\n", ft_strlen(strleng), strlen(strleng));
 
-	char strmemset[22] = "A cambiar esta string";
-	printf("\n** ft_memset **\n");
-	printf("%s\n",strmemset);
-	memset(strmemset,'&', 7);
-	printf("%s\n",strmemset);
 
 char source[35]={"Copiamos esto es la cadena source\0"};
 	char sour[35]={"Copiamos esto es la cadena source\0"};
@@ -382,6 +378,15 @@ printf("\n ** ft_toupper **\n");
 	printf(" S segunda: %i \n ", ccom2);
 	printf(" S tercera: %i \n ", ccom3);
 	printf(" S vacia: %i \n", ccom4);
+
+	char strmemset[21] = "A cambiar esta string";
+	char ftstr[21] = "A cambiar esta string";
+	printf("\n** ft_memset **\n");
+	printf("Original: %s\n",strmemset);
+	memset(strmemset,'$', 13);
+	printf("con memset: %s\n",strmemset);
+	ft_memset(ftstr, '$', 13);
+	printf("***con ft_: %s\n", ftstr);
 
 return(0);
 }
