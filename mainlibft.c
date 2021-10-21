@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduliz.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 12:47:45 by javigarc          #+#    #+#             */
-/*   Updated: 2021/10/21 10:53:51 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/10/21 11:36:56 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,22 @@
 #include <string.h>
 #include <stdlib.h>
 
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-size_t	ft_strlen(const char *s);
-size_t	ft_strlcpy(char *dest, const char *src, size_t size);
-size_t	ft_strlcat(char *dest, const char *scr, size_t size);
-int		ft_toupper(int c);
-int		ft_tolower(int c);
-char	*ft_strnstr(const char *hayctack, const char *needle, size_t len);
-int		ft_atoi(const char *str);
+int			ft_isalpha(int c);
+int			ft_isdigit(int c);
+int			ft_isalnum(int c);
+int			ft_isascii(int c);
+int			ft_isprint(int c);
+size_t		ft_strlen(const char *s);
+size_t		ft_strlcpy(char *dest, const char *src, size_t size);
+size_t		ft_strlcat(char *dest, const char *scr, size_t size);
+int			ft_toupper(int c);
+int			ft_tolower(int c);
+const char	*ft_strnstr(const char *hayctack, const char *needle, size_t len);
+int			ft_atoi(const char *str);
+const char	*ft_strchr(const char *str, int c);
 
 int main () {
-   int var1 = 'Z';
+   int var1 = 'Q';
    int var2 = '4';
    int var3 = '\t';
    int var4 = ' ';
@@ -311,5 +312,26 @@ printf("\n ** ft_toupper **\n");
 	printf("10-Result: %d\n", result);
 	printf("Resmio: %d\n", resultmio);
 
-	  return(0);
+	printf("\n ** ft_strchr **\n");
+	char	*strchr;
+	int 	tofind;
+
+	strchr = "Palcabras oso devolver stntegerdos peuBche\0";
+	tofind = '\0';
+	printf("\n%s\n", ft_strchr(strchr, tofind));
+//	printf("%s\n****\n", strchr(strchr, tofind));
+	tofind = 'o';
+	printf("%s\n", ft_strchr(strchr, tofind));
+//	printf("%s\n****\n", strchr(strchr, tofind));
+	tofind = 'i';
+	printf("%s\n", ft_strchr(strchr, tofind));
+//	printf("%s\n****\n", strchr(strchr, tofind));
+	tofind = 'c';
+	printf("%s\n", ft_strchr(strchr, tofind));
+//	printf("%s\n****\n", strchr(strchr, tofind));
+	tofind = 'B';
+	printf("%s\n", ft_strchr(strchr, tofind));
+//	printf("%s\n****\n", strchr(strchr, tofind));
+
+return(0);
 }
