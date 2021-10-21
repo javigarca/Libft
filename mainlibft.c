@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduliz.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 12:47:45 by javigarc          #+#    #+#             */
-/*   Updated: 2021/10/21 12:31:22 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/10/21 12:55:12 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int			ft_tolower(int c);
 const char	*ft_strnstr(const char *hayctack, const char *needle, size_t len);
 int			ft_atoi(const char *str);
 const char	*ft_strchr(const char *str, int c);
-const char	*ft_strrchr(const char	*str, int c);
+const char	*ft_strrchr(const char *str, int c);
+int 		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 int main () {
    int var1 = 'Q';
@@ -352,6 +353,35 @@ printf("\n ** ft_toupper **\n");
 	trofind = 'B';
 	printf("%s\n", ft_strrchr(srstrchr, trofind));
 	printf("%s\n****\n", strrchr(srstrchr, trofind));
+
+	printf("\n ** ft_strncmp **\n");
+
+	int rres1, rres2, rres3, rres4, ccom1, ccom2, ccom3, ccom4;
+
+	char *string11 = "\200";
+	char *string12 = "CAractersc";
+	char *string13 = "caractersc";
+	char *string14 = "";
+
+	rres1 = ft_strncmp(string11,string12,11);
+	rres2 = ft_strncmp(string11,string13,2);
+	rres3 = ft_strncmp(string12,string13,9);
+	rres4 = ft_strncmp(string12,string14,2);
+	ccom1 = strncmp(string11,string12,11);
+	ccom2 = strncmp(string11,string13,2);
+	ccom3 = strncmp(string12,string13,9);
+	ccom4 = strncmp(string12,string14,2);
+
+
+	printf(" F primera: %i \n ", rres1);
+	printf(" F segunda: %i \n ", rres2);
+	printf(" F tercera: %i \n ", rres3);
+	printf(" F vacia: %i \n ", rres4);
+	printf("\n Ahora con la funcion strncmp\n");
+	printf(" S primera: %i \n ", ccom1);
+	printf(" S segunda: %i \n ", ccom2);
+	printf(" S tercera: %i \n ", ccom3);
+	printf(" S vacia: %i \n", ccom4);
 
 return(0);
 }
