@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduliz.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 12:47:45 by javigarc          #+#    #+#             */
-/*   Updated: 2021/10/21 11:36:56 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/10/21 11:58:35 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -313,25 +313,24 @@ printf("\n ** ft_toupper **\n");
 	printf("Resmio: %d\n", resultmio);
 
 	printf("\n ** ft_strchr **\n");
-	char	*strchr;
+	char	sstrchr[43] = "Palcabras oso devolver stntegerdos peuBche\0";
 	int 	tofind;
 
-	strchr = "Palcabras oso devolver stntegerdos peuBche\0";
 	tofind = '\0';
-	printf("\n%s\n", ft_strchr(strchr, tofind));
-//	printf("%s\n****\n", strchr(strchr, tofind));
+	printf("\n%s\n", ft_strchr(sstrchr, tofind));
+	printf("%s\n****\n", strchr(sstrchr, tofind));
 	tofind = 'o';
-	printf("%s\n", ft_strchr(strchr, tofind));
-//	printf("%s\n****\n", strchr(strchr, tofind));
+	printf("%s\n", ft_strchr(sstrchr, tofind));
+	printf("%s\n****\n", strchr(sstrchr, tofind));
 	tofind = 'i';
-	printf("%s\n", ft_strchr(strchr, tofind));
-//	printf("%s\n****\n", strchr(strchr, tofind));
+	printf("%s\n", ft_strchr(sstrchr, tofind));
+	printf("%s\n****\n", strchr(sstrchr, tofind));
 	tofind = 'c';
-	printf("%s\n", ft_strchr(strchr, tofind));
-//	printf("%s\n****\n", strchr(strchr, tofind));
+	printf("%s\n", ft_strchr(sstrchr, tofind));
+	printf("%s\n****\n", strchr(sstrchr, tofind));
 	tofind = 'B';
-	printf("%s\n", ft_strchr(strchr, tofind));
-//	printf("%s\n****\n", strchr(strchr, tofind));
+	printf("%s\n", ft_strchr(sstrchr, tofind));
+	printf("%s\n****\n", strchr(sstrchr, tofind));
 
 return(0);
 }
