@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/21 16:53:20 by javigarc          #+#    #+#             */
-/*   Updated: 2021/10/22 14:03:09 by javigarc         ###   ########.fr       */
+/*   Created: 2021/10/22 16:29:19 by javigarc          #+#    #+#             */
+/*   Updated: 2021/10/22 18:01:25 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include <stdio.h>
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
+	size_t			i;
 	unsigned char	*swap;
-	unsigned char	*swap2;
+	unsigned char	tofind;
 
-	swap = (unsigned char *) dst;
-	swap2 = (unsigned char *) src;
-	while (n-- > 0)
-		*swap++ = *swap2++;
-	return (dst);
+	swap = (unsigned char *) s;
+	tofind = (unsigned char) c;
+	i = 0;
+	while ((swap[i] != 00) && (n-- > 0))
+	{
+		if (swap[i] == tofind)
+			return (&swap[i]);
+		i++;
+	}
+	return (0);
 }

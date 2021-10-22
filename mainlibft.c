@@ -6,35 +6,13 @@
 /*   By: javigarc <javigarc@student.42urduliz.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 12:47:45 by javigarc          #+#    #+#             */
-/*   Updated: 2021/10/21 17:52:16 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/10/22 17:49:53 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
+#include "libft.h"
 #include <ctype.h>
-#include <string.h>
-#include <stdlib.h>
-
-int			ft_isalpha(int c);
-int			ft_isdigit(int c);
-int			ft_isalnum(int c);
-int			ft_isascii(int c);
-int			ft_isprint(int c);
-size_t		ft_strlen(const char *s);
-size_t		ft_strlcpy(char *dest, const char *src, size_t size);
-size_t		ft_strlcat(char *dest, const char *scr, size_t size);
-int			ft_toupper(int c);
-int			ft_tolower(int c);
-const char	*ft_strnstr(const char *hayctack, const char *needle, size_t len);
-int			ft_atoi(const char *str);
-const char	*ft_strchr(const char *str, int c);
-const char	*ft_strrchr(const char *str, int c);
-int 		ft_strncmp(const char *s1, const char *s2, size_t n);
-void		*ft_memset(void *str, int c, size_t n);
-void		ft_bzero(void *str, size_t n);
-void		*ft_memcpy(void *dst, const void *src, size_t n);
-void		*ft_memmove(void *dst, const void *src, size_t n);
+#include <stdio.h>
 
 int main (void)
 {
@@ -422,16 +400,44 @@ printf("\n ** ft_toupper **\n");
 	}
 //////////////////////////////////////////
 
-   const char acopy[50] = "esta %;-)";
-   char dcopy[50] = "ESTA ES LA MALA";
-   char ftcopy[50] = "ESTA ES OTRA MALA";
-   printf("\n\n ** ft_memcpy **\n");
-   printf("Before memcpy dest = %s\n", dcopy);
-   memcpy(dcopy, acopy, 9);
-   printf("After memcpy dest = %s\n", dcopy);
+   const char facopy[50] = "";
+//   char dcopy[50] = "sfdfsfdsdfsadfa"";
+	const int acopy[3] = {-111, 222222, 33333};
+	int dcopy[3];
+   dcopy[0]=000;
+	dcopy[1] = 9;
+	dcopy[2]= -8888;
+   char ftcopy[50] = "";
+   int zzz;
+   zzz = 0;
+   printf("\n\n **********************\n");
+   while (zzz < 3)
+   {
+//	    printf("\n\n ** ft_memcpy **\n");
+   printf("Before memcpy dest = %i\n",dcopy[zzz]);
+   zzz++;
+   }
+   zzz = 0;
+  while (zzz < 3){
+	  	  ft_memcpy(dcopy+zzz, acopy+zzz, 2);
+		  zzz++;
+  }
+   zzz = 0;
+   while (zzz < 3)
+   {
+	   printf("After memcpy dest = %i\n", dcopy[zzz]);
+	   zzz++;
+   }
    printf("Before ft_memcpy dest = %s\n", ftcopy);
-   ft_memcpy(ftcopy, acopy,9);
-   printf("After ft_memcpy dest = %s\n", ftcopy);
+ ft_memcpy(ftcopy, facopy,9);
+  printf("After ft_memcpy dest = %s\n", ftcopy);
+ 
+   int tras[1] = {256};
+
+   unsigned char *trasc;
+
+   trasc = (unsigned char *) tras;
+   printf("\n ---- %s ---- \n", trasc);
    
    //////////////////////////////////////////
 
@@ -445,6 +451,26 @@ printf("\n ** ft_toupper **\n");
    printf("Before ft_memmove dest = %s\n", mftcopy);
    ft_memmove(mftcopy, macopy, 50);
    printf("After ft_memmove dest = %s\n", mftcopy);
+///////////////////////////////////////////////////////////////
+	printf("\n ** ft_memchr **\n");
+	char	smemchr[43] = "PalcaBras oso devolver stntegerdos peuBche\0";
+	int 	mtrofind = 0;
+
+	mtrofind = 127;
+	printf("\n%s\n", ft_memchr(smemchr, mtrofind, 40));
+	printf("%s\n****\n", memchr(smemchr, mtrofind, 40));
+	mtrofind = 'o';
+	printf("%s\n", ft_memchr(smemchr, mtrofind, 40));
+	printf("%s\n****\n", memchr(smemchr, mtrofind, 40));
+	mtrofind = 'Z';
+	printf("%s\n", ft_memchr(smemchr, mtrofind, 40));
+	printf("%s\n****\n", memchr(smemchr, mtrofind, 40));
+	mtrofind = 'P';
+	printf("%s\n", ft_memchr(smemchr, mtrofind, 40));
+	printf("%s\n****\n", memchr(smemchr, mtrofind, 40));
+	mtrofind = 'B';
+	printf("%s\n", ft_memchr(smemchr, mtrofind, 5));
+	printf("%s\n****\n", memchr(smemchr, mtrofind, 5));
 
 return(0);
 }
