@@ -6,7 +6,7 @@
 #    By: javi_pop <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 18:16:14 by javi_pop          #+#    #+#              #
-#    Updated: 2021/10/30 00:27:29 by javi_pop         ###   ########.fr        #
+#    Updated: 2021/10/30 18:01:08 by javi_pop         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,17 +45,21 @@ AR		= ar rc
 
 LIB		= ranlib
 
-CFLAGS		= -Wall -Wextra -Werror -c
+CFLAGS		= -Wall -Wextra -Werror -I. -c
 
 .c.o:
 		${CC} ${CFLAGS} $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
-		${CC} ${OBJS} 
 		${AR} ${NAME} ${OBJS}
-		${LIB} ${NAME} ${HEADER}
+		${LIB} ${NAME}
  
 all:		${NAME}
+
+bonus:		echo "bonus"
+
+so:		${CC} -fPIC ${CFLAGS} ${SRCS}
+		${AR} -shared -o libft.so ${OBJS}
 
 clean:		
 		${RM} ${OBJS}
