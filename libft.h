@@ -6,11 +6,11 @@
 /*   By: javi_pop <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 21:16:26 by javi_pop          #+#    #+#             */
-/*   Updated: 2021/10/29 21:18:02 by javi_pop         ###   ########.fr       */
+/*   Updated: 2021/10/30 18:15:06 by javi_pop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	LIBFT_H
+#ifndef LIBFT_H
 # define LIBFT_H
 
 # include <unistd.h>
@@ -31,7 +31,7 @@ const char	*ft_strnstr(const char *hayctack, const char *needle, size_t len);
 int			ft_atoi(const char *str);
 const char	*ft_strchr(const char *str, int c);
 const char	*ft_strrchr(const char *str, int c);
-int 		ft_strncmp(const char *s1, const char *s2, size_t n);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
 void		*ft_memset(void *str, int c, size_t n);
 void		ft_bzero(void *str, size_t n);
 void		*ft_memcpy(void *dst, const void *src, size_t n);
