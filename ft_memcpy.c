@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 16:53:20 by javigarc          #+#    #+#             */
-/*   Updated: 2021/10/22 14:03:09 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/11/02 13:12:45 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 
 	swap = (unsigned char *) dst;
 	swap2 = (unsigned char *) src;
+	if ((swap == swap2) && (!swap))
+		return (dst);
 	while (n-- > 0)
 		*swap++ = *swap2++;
 	return (dst);

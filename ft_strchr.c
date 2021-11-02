@@ -6,24 +6,26 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 11:00:12 by javigarc          #+#    #+#             */
-/*   Updated: 2021/10/21 16:22:42 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/11/02 16:41:26 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-const char	*ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *str, int c)
 {
 	size_t	i;
+	char	*aux;
 
 	i = 0;
-	while (str[i] != 00)
+	aux = (char *) str;
+	while (aux[i] != 00)
 	{
-		if (str[i] == c)
-			return (&str[i]);
+		if (aux[i] == c)
+			return (&aux[i]);
 		i++;
 	}
-	if (str[i] == c)
-		return (&str[i]);
+	if (aux[i] == c)
+		return (&aux[i]);
 	return (0);
 }

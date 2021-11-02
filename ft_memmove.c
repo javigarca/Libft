@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 17:30:14 by javigarc          #+#    #+#             */
-/*   Updated: 2021/10/21 17:52:14 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/11/02 13:14:13 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 
 	swap = (unsigned char *) dst;
 	swap2 = (unsigned char *) src;
+	if ((swap == swap2) && (!swap))
+		return (dst);
 	if ((swap > swap2) && ((swap2 + n) > swap))
 	{
 		swap = swap + n - 1;

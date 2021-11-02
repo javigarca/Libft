@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/22 16:29:19 by javigarc          #+#    #+#             */
-/*   Updated: 2021/11/02 14:18:22 by javigarc         ###   ########.fr       */
+/*   Created: 2021/11/02 17:31:13 by javigarc          #+#    #+#             */
+/*   Updated: 2021/11/02 18:01:55 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+#include <stdlib.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strdup(char *src)
 {
-	size_t			i;
-	unsigned char	*swap;
-	unsigned char	tofind;
+	int		i;
+	int		len;
+	char	*dst;
 
-	swap = (unsigned char *) s;
-	tofind = (unsigned char) c;
+	len = 0;
+	while (src[len] != '\0')
+		len++;
+	dst = (char *)malloc(sizeof(char) * (len + 1));
+	if (!dst)
+		return (NULL);
 	i = 0;
-	while ((swap[i] != 00) && (n-- > 1))
+	while (i < len)
 	{
-		if (swap[i] == tofind)
-			return (&swap[i]);
+		dst[i] = src[i];
 		i++;
 	}
-	if (swap[i] == tofind)
-		return (&swap[i]);
-	return (0);
+	dst[i] = '\0';
+	return (dst);
+	free(dst);
 }
