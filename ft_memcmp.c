@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/22 16:29:19 by javigarc          #+#    #+#             */
-/*   Updated: 2021/10/22 18:10:02 by javigarc         ###   ########.fr       */
+/*   Created: 2021/10/21 12:34:51 by javigarc          #+#    #+#             */
+/*   Updated: 2021/10/22 18:13:58 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include <stdio.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
+/*
+ *
+ *
+ * reparar
+ * */
+	
 	size_t			i;
-	unsigned char	*swap;
-	unsigned char	tofind;
+	unsigned char	*cast_s1;
+	unsigned char	*cast_s2;
 
-	swap = (unsigned char *) s;
-	tofind = (unsigned char) c;
 	i = 0;
-	while ((swap[i] != 00) && (n-- > 0))
+	cast_s1 = (unsigned char *)s1;
+	cast_s2 = (unsigned char *)s2;
+	while (i < n && (cast_s1[i] || cast_s2[i]))
 	{
-		if (swap[i] == tofind)
-			return (&swap[i]);
+		if (cast_s1[i] != cast_s2[i])
+		{
+			return (cast_s1[i] - cast_s2[i]);
+		}
 		i++;
 	}
 	return (0);
