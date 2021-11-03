@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 17:31:13 by javigarc          #+#    #+#             */
-/*   Updated: 2021/11/03 13:19:42 by javigarc         ###   ########.fr       */
+/*   Created: 2021/11/03 10:56:26 by javigarc          #+#    #+#             */
+/*   Updated: 2021/11/03 13:30:27 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-char	*ft_strdup(char *src)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		i;
-	int		len;
-	char	*dst;
+	char	*aux;
+	size_t	i;
+	size_t	z;
 
-	len = 0;
-	while (src[len] != '\0')
-		len++;
-	dst = (char *)malloc(sizeof(char) * (len + 1));
-	if (!dst)
-		return (NULL);
-	i = 0;
-	while (i < len)
+	i = (size_t) start;
+	if (i >= ft_strlen(s))
 	{
-		dst[i] = src[i];
+		aux = (char *) malloc (1);
+		aux[0] = '\0';
+		return (aux);
+	}
+	z = 0;
+	aux = (char *) malloc(len + 1);
+	if (!aux)
+		return (0);
+	while (z < len)
+	{
+		aux[z] = s[i];
+		z++;
 		i++;
 	}
-	dst[i] = '\0';
-	return (dst);
+	aux[z] = '\0';
+	return (aux);
 }

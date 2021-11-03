@@ -6,7 +6,7 @@
 #    By: javi_pop <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 18:16:14 by javi_pop          #+#    #+#              #
-#    Updated: 2021/11/02 17:33:12 by javigarc         ###   ########.fr        #
+#    Updated: 2021/11/03 12:21:34 by javigarc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,9 @@ SRCS		= ft_atoi.c \
 		  	ft_tolower.c \
 		  	ft_toupper.c \
 			ft_calloc.c \
-			ft_strdup.c
+			ft_strdup.c \
+			ft_substr.c \
+			ft_strjoin.c
 
 HEADER		= libft.h
 
