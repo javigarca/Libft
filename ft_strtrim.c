@@ -1,40 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 10:56:26 by javigarc          #+#    #+#             */
-/*   Updated: 2021/11/03 13:42:33 by javigarc         ###   ########.fr       */
+/*   Created: 2021/11/03 13:43:11 by javigarc          #+#    #+#             */
+/*   Updated: 2021/11/03 17:38:32 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*aux;
-	size_t	i;
-	size_t	z;
+	int		i;
+	int		z;
 
-	i = (size_t) start;
-	if (i >= ft_strlen(s))
+	i = 0;
+	if (!set)
+		return ((char *) s1);
+	while (ft_strchr(set, s1[i]) != 0)
+		i++;
+	z = (int) ft_strlen(s1);
+	if ((z + 1) == i)
+		return (NULL);
+	while (ft_strchr(set, s1[z]) != 0)
+		z--;
+	if (z > i)
 	{
-		aux = (char *) malloc (1);
-		aux[0] = '\0';
+		aux = (char *) malloc((z - i) + 2);
+		if (!aux)
+			return (0);
+		ft_strlcpy(aux, &s1[i], (z - i) + 3);
+		aux[(z - i) + 1] = '\0';
 		return (aux);
 	}
-	z = 0;
-	aux = (char *) malloc(len + 1);
-	if (!aux)
-		return (0);
-	while (z < len)
-	{
-		aux[z] = s[i];
-		z++;
-		i++;
-	}
-	aux[z] = '\0';
-	return (aux);
+	else
+		return ((char *) s1);
 }

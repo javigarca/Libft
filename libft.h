@@ -6,7 +6,7 @@
 /*   By: javi_pop <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 21:16:26 by javi_pop          #+#    #+#             */
-/*   Updated: 2021/11/03 12:33:35 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/11/03 15:11:14 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ void		*ft_calloc(size_t count, size_t size);
 char		*ft_strdup(const char *src);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(char const *s1, char const *s2);
+char		*ft_strtrim(char const *s1, char const *set);
 
 #endif
