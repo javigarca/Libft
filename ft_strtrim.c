@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 13:43:11 by javigarc          #+#    #+#             */
-/*   Updated: 2021/11/03 17:38:32 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/11/04 18:12:40 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	i = 0;
 	if (!set)
-		return ((char *) s1);
+		return (ft_strdup((char *) s1));
 	while (ft_strchr(set, s1[i]) != 0)
 		i++;
 	z = (int) ft_strlen(s1);
 	if ((z + 1) == i)
-		return (NULL);
+		return (ft_strdup(""));
 	while (ft_strchr(set, s1[z]) != 0)
 		z--;
 	if (z > i)
