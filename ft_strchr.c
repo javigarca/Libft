@@ -16,16 +16,18 @@ char	*ft_strchr(const char *str, int c)
 {
 	size_t	i;
 	char	*aux;
+	char	tofind;
 
 	i = 0;
+	tofind = (unsigned char) c;
 	aux = (char *) str;
 	while (aux[i] != 00)
 	{
-		if (aux[i] == c)
+		if (aux[i] == tofind)
 			return (&aux[i]);
 		i++;
 	}
-	if (aux[i] == c)
+	if (aux[i] == tofind)
 		return (&aux[i]);
 	return (0);
 }

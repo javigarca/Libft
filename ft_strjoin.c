@@ -19,6 +19,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*aux;
 	int		totalsize;
 
+	if ((!s1) || (!s2))
+		return (NULL);
 	totalsize = ft_strlen(s1) + ft_strlen(s2);
 	pos = (size_t)totalsize + 1;
 	string = (char *)malloc(sizeof(char) * (totalsize) + 1);
@@ -28,5 +30,5 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	aux = ft_strdup(s2);
 	ft_strlcat(string, aux, pos);
 	string[ft_strlen(string)] = 00;
-	return (string);
+	return ((char *)ft_strdup(string));
 }

@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <string.h>
-#include <stdio.h>
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
@@ -22,13 +21,15 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	swap = (unsigned char *) s;
 	tofind = (unsigned char) c;
 	i = 0;
-	while ((swap[i] != 00) && (n-- > 1))
+	if (n == 0)
+		return (NULL);
+	while ((swap[i] != 00) && (n > (i + 1)))
 	{
 		if (swap[i] == tofind)
-			return (&swap[i]);
+			return ((void *)&swap[i]);
 		i++;
 	}
 	if (swap[i] == tofind)
-		return (&swap[i]);
-	return (0);
+		return ((void *)&swap[i]);
+	return (NULL);
 }
