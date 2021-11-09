@@ -11,7 +11,16 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+
+static int	ft_findstart(char const *ss1, char const *sset)
+{
+	int	i;
+
+	i = 0;
+	while (ft_strchr(sset, ss1[i]) != 0)
+		i++;
+	return (i);
+}
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
@@ -19,27 +28,20 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		i;
 	int		z;
 
-	i = 0;
 	if (!set)
 		return (ft_strdup((char *) s1));
 	if (!s1)
 		return (NULL);
-	while (ft_strchr(set, s1[i]) != 0)
-		i++;
+	i = ft_findstart(s1, set);
 	z = (int) ft_strlen(s1);
-	if ((z + 1) == i)
+	if (z < i)
 		return (ft_strdup(""));
 	while (ft_strchr(set, s1[z]) != 0)
 		z--;
-	if (z > i)
-	{
-		aux = (char *) malloc((z - i) + 2);
-		if (!aux)
-			return (0);
-		ft_strlcpy(aux, &s1[i], (z - i) + 3);
-		aux[(z - i) + 1] = '\0';
-		return (aux);
-	}
-	else
-		return ((char *) s1);
+	aux = (char *) malloc((z - i) + 2);
+	if (!aux)
+		return (0);
+	ft_strlcpy(aux, &s1[i], (z - i) + 3);
+	aux[(z - i) + 1] = '\0';
+	return (ft_strdup(aux));
 }
