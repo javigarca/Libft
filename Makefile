@@ -53,7 +53,7 @@ AR			= ar rc
 
 LIB			= ranlib
 
-CFLAGS		= -Wall -Wextra -Werror -I. -c
+CFLAGS		= -Wall -Wextra -Werror -I ${HEADER} -c
 
 .c.o:
 			${CC} ${CFLAGS} $< -o ${<:.c=.o}
@@ -65,9 +65,6 @@ $(NAME):	${OBJS}
 all:		${NAME}
 
 bonus:		echo "bonus"
-
-so:			${CC} -fPIC ${CFLAGS} ${SRCS}
-			${AR} -shared -o libft.so ${OBJS}
 
 clean:		
 			${RM} ${OBJS}
