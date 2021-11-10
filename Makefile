@@ -6,7 +6,7 @@
 #    By: javi_pop <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 18:16:14 by javi_pop          #+#    #+#              #
-#    Updated: 2021/11/05 10:20:45 by javigarc         ###   ########.fr        #
+#    Updated: 2021/11/10 19:20:22 by javigarc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ AR			= ar rc
 
 LIB			= ranlib
 
-CFLAGS		= -Wall -Wextra -Werror -I ${HEADER} -c
+CFLAGS		= -Wall -Wextra -Werror -I. -c
 
 .c.o:
 			${CC} ${CFLAGS} $< -o ${<:.c=.o}
