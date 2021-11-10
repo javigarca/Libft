@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 11:00:12 by javigarc          #+#    #+#             */
-/*   Updated: 2021/11/02 16:41:26 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/11/10 20:49:39 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strchr(const char *str, int c)
 	char	tofind;
 
 	i = 0;
-	tofind = (unsigned char) c;
+	tofind = (char) c;
 	aux = (char *) str;
 	while (aux[i] != 00)
 	{
