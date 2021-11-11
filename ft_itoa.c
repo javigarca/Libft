@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduliz.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 10:23:05 by javigarc          #+#    #+#             */
-/*   Updated: 2021/11/10 20:09:42 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/11/11 16:11:39 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,13 @@ static int	ft_nbrlen(int nbr)
 		nbr *= -1;
 		z++;
 	}
-	while ((nbr / 10) != 0)
-	{
+	if (nbr == 0)
 		z++;
+	while (nbr > 0)
+	{
 		nbr = nbr / 10;
+		z++;
 	}
-	z++;
 	return (z);
 }
 
