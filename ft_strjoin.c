@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 12:21:03 by javigarc          #+#    #+#             */
-/*   Updated: 2021/11/03 13:30:16 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/11/16 17:31:45 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	aux = ft_strdup(s2);
 	ft_strlcat(string, aux, pos);
 	string[ft_strlen(string)] = 00;
-	return ((char *)ft_strdup(string));
+	return (string);
 }
