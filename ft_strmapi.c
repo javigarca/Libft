@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 15:36:31 by javigarc          #+#    #+#             */
-/*   Updated: 2021/11/11 16:20:22 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/11/16 15:17:00 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		if (!aux)
 			return (0);
 		i = 0;
-		while (i <= len)
+		while (i < len)
 		{
 			aux[i] = f(i, s[i]);
 			i++;

@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 10:20:57 by javigarc          #+#    #+#             */
-/*   Updated: 2021/11/10 17:53:53 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/11/16 15:48:10 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,16 @@ char		**ft_split(char const *s, char c)
 	char	*aux;
 	size_t	chrfound;
 	
-	if (s == NULL)
+	if (!s)
 		return (NULL);
 	aux = ft_strdup((char *)s);
 	chrfound = ft_countsubs(aux, c);
 	if ((chrfound == 0) || (chrfound == (ft_strlen(aux))))
 		return (NULL);
-	strstr = (char **)malloc((sizeof (char *) * chrfound) + 2);
+	strstr = (char **)malloc((sizeof (char *) * chrfound) + 1);
 	if (!strstr)
 		return (0);
-	strstr[(chrfound + 1)] = (char *)malloc(sizeof (char *));
-	if (!strstr[chrfound + 1])
-		return (0);
-	strstr[chrfound + 1] = NULL;
+	strstr[(chrfound + 1)] = ft_strdup("\0");
 	while (chrfound >= 1)
 	{
 		strstr[chrfound] = (char *)malloc((sizeof (char *)) * ft_strlen(ft_strrchr(aux, c)));
