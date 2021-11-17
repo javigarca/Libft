@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 10:20:57 by javigarc          #+#    #+#             */
-/*   Updated: 2021/11/17 18:51:51 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/11/18 00:34:34 by javi_pop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,23 @@
 
 static size_t	ft_countsubs(const char *str, char c)
 {
-	size_t		cont;
-	size_t		i;
-	size_t		rep;
-	char		*aux;
-	
-	aux = ft_strtrim(str, &c);
-	cont = 0;
-	rep = 0;
-	i = ft_strlen(str);
+	size_t		count;
+	int		i;
+
+	count = 0;
+	i = 0;
 	while (str[i])
 	{
 		if (str[i] == c)
+			i++;
+		else
 		{
-			cont++;
-			rep++;
+			count++;
+			while (str[i] != c)
+				i++;
 		}
-		if (str[i] && rep)
-			i--;
-		i--;
 	}
-	return (cont + 1);
+	return (count);
 }
 
 char		**ft_split(char const *s, char c)
@@ -47,10 +43,12 @@ char		**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	aux = ft_strdup((char *)s);
+
 	chrfound = ft_countsubs(s, c);
-	strstr = (char **)malloc((sizeof (char *) * chrfound) + 1);
+	strstr = (char **)malloc(sizeof (char *) * chrfound + 1);
 	if (!strstr)
 		return (0);
+	printf("\nla cuenta es %li", chrfound);
 	strstr[(chrfound + 1)] = ft_strdup("\0");
 	while (chrfound >= 1)
 	{
