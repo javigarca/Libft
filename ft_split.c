@@ -6,29 +6,36 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 10:20:57 by javigarc          #+#    #+#             */
-/*   Updated: 2021/11/16 18:14:31 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/11/17 18:51:51 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static size_t	ft_countsubs(const char *str, int c)
+static size_t	ft_countsubs(const char *str, char c)
 {
 	size_t		cont;
 	size_t		i;
-
+	size_t		rep;
+	char		*aux;
+	
+	aux = ft_strtrim(str, &c);
 	cont = 0;
+	rep = 0;
 	i = ft_strlen(str);
-
-	while (i != 0)
+	while (str[i])
 	{
-		if (*str == c)
+		if (str[i] == c)
+		{
 			cont++;
-		str++;
+			rep++;
+		}
+		if (str[i] && rep)
+			i--;
 		i--;
 	}
-	return (cont);
+	return (cont + 1);
 }
 
 char		**ft_split(char const *s, char c)
@@ -40,7 +47,6 @@ char		**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	aux = ft_strdup((char *)s);
-	strstr = NULL;
 	chrfound = ft_countsubs(s, c);
 	strstr = (char **)malloc((sizeof (char *) * chrfound) + 1);
 	if (!strstr)
