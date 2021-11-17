@@ -6,7 +6,7 @@
 #    By: javi_pop <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 18:16:14 by javi_pop          #+#    #+#              #
-#    Updated: 2021/11/11 15:57:42 by javigarc         ###   ########.fr        #
+#    Updated: 2021/11/17 15:38:15 by javigarc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,9 +47,21 @@ SRCS		= ft_atoi.c \
 			ft_strmapi.c \
 			ft_striteri.c
 
+BONUSSRCS	= ft_lstnew.c \
+			  ft_lstadd_front.c \
+			  ft_lstsize.c \
+			  ft_lstlast.c \
+			  ft_lstadd_back.c \
+			  ft_lstdelone.c \
+			  ft_lstclear.c \
+			  ft_lstiter.c \
+			  ft_lstmap.c
+
 HEADER		= libft.h
 
 OBJS		= ${SRCS:.c=.o}
+
+BONUSOBJS	= ${BONUSSRCS:.c=.o}
 
 CC			= gcc
 
@@ -64,16 +76,18 @@ CFLAGS		= -Wall -Wextra -Werror -I. -c
 .c.o:
 			${CC} ${CFLAGS} $< -o ${<:.c=.o}
 
-$(NAME):	${OBJS}
-				${AR} ${NAME} ${OBJS}
+$(NAME):	${OBJS} ${HEADER}
+				${AR} ${NAME} ${OBJS} 
 				${LIB} ${NAME}
  
 all:		${NAME}
 
-bonus:		echo "bonus"
+bonus:		${OBJS} ${BONUSOBJS} ${HEADER}
+				${AR} ${NAME} ${OBJS} ${BONUSOBJS}
+				${LIB} ${NAME}
 
 clean:		
-			${RM} ${OBJS}
+			${RM} ${OBJS} ${BONUSOBJS}
 
 fclean:		clean
 			${RM} ${NAME}
@@ -81,4 +95,4 @@ fclean:		clean
 re:			fclean all
 
 
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re bonus
