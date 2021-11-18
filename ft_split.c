@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 10:20:57 by javigarc          #+#    #+#             */
-/*   Updated: 2021/11/18 20:13:53 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/11/18 20:57:04 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,34 @@
 
 static int	ft_countsubs(const char *str, char c)
 {
-	int	count;
-	int		i;
+	int	i;
+	int	trigger;
 
-	count = 0;
 	i = 0;
-	while (str[i] || i < (int)ft_strlen(str) + 1)
+	trigger = 0;
+	if (str == 0)
+		return (0);
+	while (*str)
 	{
-		if (str[i] == c)
-			i++;
-		else
+		if (*str != c && trigger == 0)
 		{
-			count++;
-			while (str[i] != c || i < (int)ft_strlen(str) + 1)
-				i++;
+			trigger = 1;
+			i++;
 		}
+		else if (*str == c)
+		{
+			trigger = 0;
+		}
+		str++;
 	}
-	return (count);
+	return (i);
 }
 
 static char	**ft_dostrstr(char **strstr, char const *s, char c, int numsubs)
 {
 	int	i;
-	int		k;
-	int		start;
+	int	k;
+	int	start;
 
 	i = 0;
 	k = 0;
@@ -53,8 +57,7 @@ static char	**ft_dostrstr(char **strstr, char const *s, char c, int numsubs)
 		strstr[i] = (char *)malloc(sizeof(char) *(k - start + 2));
 		if (!strstr[i])
 			return (0);
-		ft_strlcpy(strstr[i], s + start, k -start + 1);
-//		strstr[i] = ft_substr(s, start, k - start);
+		ft_strlcpy(strstr[i], s + start, k - start + 1);
 		i++;
 	}
 	return (strstr);
@@ -63,17 +66,15 @@ static char	**ft_dostrstr(char **strstr, char const *s, char c, int numsubs)
 char	**ft_split(char const *s, char c)
 {
 	char	**strstr;
-	int	numsubs;
+	int		numsubs;
 
 	if (!s)
 		return (NULL);
 	numsubs = ft_countsubs(s, c);
-	printf("\n ****%i****",numsubs);
-	strstr = (char **)malloc(sizeof(char**) * (numsubs + 1));
+	strstr = (char **)malloc(sizeof(char **) * (numsubs + 1));
 	if (!strstr)
 		return (0);
 	strstr[numsubs] = 0;
 	strstr = ft_dostrstr(strstr, s, c, numsubs);
-//	system ("leaks a.out");
 	return (strstr);
 }

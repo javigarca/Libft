@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduliz.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 10:23:05 by javigarc          #+#    #+#             */
-/*   Updated: 2021/11/16 17:07:18 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/11/18 20:37:44 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,10 @@ char	*ft_itoa(int n)
 	if (!itoa)
 		return (NULL);
 	if (n <= -2147483648)
-		return (ft_strdup("-2147483648"));
+	{
+		ft_strlcpy(itoa, "-2147483648", 12);
+		return (itoa);
+	}
 	if (n < 0)
 		return (ft_neg(n, len));
 	itoa[len] = '\0';
