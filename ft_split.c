@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 10:20:57 by javigarc          #+#    #+#             */
-/*   Updated: 2021/11/18 15:03:08 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/11/18 17:59:20 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,35 @@ static size_t	ft_countsubs(const char *str, char c)
 	return (count);
 }
 
+char	**ft_dostrstr(char **strstr, char const *s, char c, size_t numsubs)
+{
+	size_t	i;
+	int		k;
+	int		start;
+
+	i = 0;
+	k = 0;
+	start = 0;
+	while (s[k] && (i < numsubs))
+	{
+		while (s[k] && (s[k] == c))
+			k++;
+		start = k;
+		while (s[k] && (s[k] != c))
+			k++;
+		strstr[i] = (char *)malloc(sizeof(char) * (k - start + 1));
+		if (!strstr[i])
+			return (0);
+		strstr[i] = ft_substr(s, start, k - start);
+		i++;
+	}
+	return (strstr);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**strstr;
 	size_t	numsubs;
-	size_t	i;
-	size_t	k;
-	size_t	sublen;
-	size_t	start;
 
 	if (!s)
 		return (NULL);
@@ -49,27 +70,8 @@ char	**ft_split(char const *s, char c)
 	strstr = (char **)malloc(sizeof (char *) * (numsubs + 1));
 	if (!strstr)
 		return (0);
-	strstr[(numsubs + 1)] = NULL;
-	i = 0;
-	k = 0;
-	sublen = 0;
-	while (s[k] && (i < numsubs))
-	{
-		while (s[k] && (s[k] == c))
-			k++;
-		start = k;
-		while (s[k] && (s[k] != c))
-		{
-			k++;
-			sublen++;
-		}
-		strstr[i] = (char *)malloc(sizeof(char) * (sublen + 1));
-		if (!strstr[i])
-			return (0);
-		strstr[i] = ft_substr(s, start, sublen);
-		sublen = 0;
-		i++;
-	}
-//	system ("leaks a.out");
+	strstr = ft_dostrstr(strstr, s, c, numsubs);
+	strstr[numsubs] = NULL;
+	system ("leaks a.out");
 	return (strstr);
 }
