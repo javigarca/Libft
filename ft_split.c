@@ -6,37 +6,37 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 10:20:57 by javigarc          #+#    #+#             */
-/*   Updated: 2021/11/18 17:59:20 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/11/18 20:13:53 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static size_t	ft_countsubs(const char *str, char c)
+static int	ft_countsubs(const char *str, char c)
 {
-	size_t	count;
+	int	count;
 	int		i;
 
 	count = 0;
 	i = 0;
-	while (str[i])
+	while (str[i] || i < (int)ft_strlen(str) + 1)
 	{
 		if (str[i] == c)
 			i++;
 		else
 		{
 			count++;
-			while (str[i] != c)
+			while (str[i] != c || i < (int)ft_strlen(str) + 1)
 				i++;
 		}
 	}
 	return (count);
 }
 
-char	**ft_dostrstr(char **strstr, char const *s, char c, size_t numsubs)
+static char	**ft_dostrstr(char **strstr, char const *s, char c, int numsubs)
 {
-	size_t	i;
+	int	i;
 	int		k;
 	int		start;
 
@@ -50,10 +50,11 @@ char	**ft_dostrstr(char **strstr, char const *s, char c, size_t numsubs)
 		start = k;
 		while (s[k] && (s[k] != c))
 			k++;
-		strstr[i] = (char *)malloc(sizeof(char) * (k - start + 1));
+		strstr[i] = (char *)malloc(sizeof(char) *(k - start + 2));
 		if (!strstr[i])
 			return (0);
-		strstr[i] = ft_substr(s, start, k - start);
+		ft_strlcpy(strstr[i], s + start, k -start + 1);
+//		strstr[i] = ft_substr(s, start, k - start);
 		i++;
 	}
 	return (strstr);
@@ -62,16 +63,17 @@ char	**ft_dostrstr(char **strstr, char const *s, char c, size_t numsubs)
 char	**ft_split(char const *s, char c)
 {
 	char	**strstr;
-	size_t	numsubs;
+	int	numsubs;
 
 	if (!s)
 		return (NULL);
 	numsubs = ft_countsubs(s, c);
-	strstr = (char **)malloc(sizeof (char *) * (numsubs + 1));
+	printf("\n ****%i****",numsubs);
+	strstr = (char **)malloc(sizeof(char**) * (numsubs + 1));
 	if (!strstr)
 		return (0);
+	strstr[numsubs] = 0;
 	strstr = ft_dostrstr(strstr, s, c, numsubs);
-	strstr[numsubs] = NULL;
-	system ("leaks a.out");
+//	system ("leaks a.out");
 	return (strstr);
 }
