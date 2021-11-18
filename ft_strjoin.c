@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 12:21:03 by javigarc          #+#    #+#             */
-/*   Updated: 2021/11/16 17:31:45 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/11/18 14:48:27 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	pos;
 	char	*string;
-	char	*aux;
 	int		totalsize;
 
 	if ((!s1) || (!s2))
@@ -26,9 +25,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	string = (char *)malloc(sizeof(char) * (totalsize) + 1);
 	if (!string)
 		return (0);
-	string = ft_strdup(s1);
-	aux = ft_strdup(s2);
-	ft_strlcat(string, aux, pos);
+	ft_strlcpy(string, s1, ft_strlen(s1) + 1);
+	ft_strlcat(string, s2, pos);
 	string[ft_strlen(string)] = 00;
 	return (string);
 }

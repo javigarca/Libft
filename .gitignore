@@ -1,5 +1,6 @@
 .DS*
 a.out
+a.out*
 *.swp
 libftst/
 main*.*

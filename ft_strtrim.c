@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 13:43:11 by javigarc          #+#    #+#             */
-/*   Updated: 2021/11/04 18:16:08 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/11/18 14:52:36 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (ft_strdup(""));
 	while (ft_strchr(set, s1[z]) != 0)
 		z--;
-	aux = (char *) malloc((z - i) + 2);
+	aux = (char *) malloc(sizeof(char) * (z - i + 2));
 	if (!aux)
 		return (0);
-	ft_strlcpy(aux, &s1[i], (z - i) + 3);
-	aux[(z - i) + 1] = '\0';
-	return (ft_strdup(aux));
+	ft_strlcpy(aux, &s1[i], (z - i) + 2);
+	return (aux);
 }

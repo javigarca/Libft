@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 10:20:57 by javigarc          #+#    #+#             */
-/*   Updated: 2021/11/18 00:34:34 by javi_pop         ###   ########.fr       */
+/*   Updated: 2021/11/18 15:03:08 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static size_t	ft_countsubs(const char *str, char c)
 {
-	size_t		count;
+	size_t	count;
 	int		i;
 
 	count = 0;
@@ -34,34 +34,42 @@ static size_t	ft_countsubs(const char *str, char c)
 	return (count);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**strstr;
-	char	*aux;
-	size_t	chrfound;
-	
+	size_t	numsubs;
+	size_t	i;
+	size_t	k;
+	size_t	sublen;
+	size_t	start;
+
 	if (!s)
 		return (NULL);
-	aux = ft_strdup((char *)s);
-
-	chrfound = ft_countsubs(s, c);
-	strstr = (char **)malloc(sizeof (char *) * chrfound + 1);
+	numsubs = ft_countsubs(s, c);
+	strstr = (char **)malloc(sizeof (char *) * (numsubs + 1));
 	if (!strstr)
 		return (0);
-	printf("\nla cuenta es %li", chrfound);
-	strstr[(chrfound + 1)] = ft_strdup("\0");
-	while (chrfound >= 1)
+	strstr[(numsubs + 1)] = NULL;
+	i = 0;
+	k = 0;
+	sublen = 0;
+	while (s[k] && (i < numsubs))
 	{
-		strstr[chrfound] = (char *)malloc((sizeof (char *)) * ft_strlen(ft_strrchr(aux, c)));
-		if (!strstr[chrfound])
+		while (s[k] && (s[k] == c))
+			k++;
+		start = k;
+		while (s[k] && (s[k] != c))
+		{
+			k++;
+			sublen++;
+		}
+		strstr[i] = (char *)malloc(sizeof(char) * (sublen + 1));
+		if (!strstr[i])
 			return (0);
-		strstr[chrfound] = ft_strrchr(aux, c);
-		aux = ft_substr(aux, 0, ft_strlen(aux) - ft_strlen(strstr[chrfound]));
-		chrfound--;
+		strstr[i] = ft_substr(s, start, sublen);
+		sublen = 0;
+		i++;
 	}
-		strstr[chrfound] = (char *)malloc((sizeof (char *)) * ft_strlen(aux));
-		if (!strstr[chrfound])
-			return (0);
-		strstr[chrfound] =	ft_strtrim(aux, " ");
+//	system ("leaks a.out");
 	return (strstr);
 }

@@ -6,7 +6,7 @@
 #    By: javi_pop <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 18:16:14 by javi_pop          #+#    #+#              #
-#    Updated: 2021/11/17 15:38:15 by javigarc         ###   ########.fr        #
+#    Updated: 2021/11/18 11:35:36 by javigarc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,8 +82,8 @@ $(NAME):	${OBJS} ${HEADER}
  
 all:		${NAME}
 
-bonus:		${OBJS} ${BONUSOBJS} ${HEADER}
-				${AR} ${NAME} ${OBJS} ${BONUSOBJS}
+bonus:		${BONUSOBJS} ${HEADER}
+				${AR} ${NAME} ${BONUSOBJS}
 				${LIB} ${NAME}
 
 clean:		
