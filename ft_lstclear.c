@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 15:06:12 by javigarc          #+#    #+#             */
-/*   Updated: 2021/11/17 15:28:58 by javigarc         ###   ########.fr       */
+/*   Updated: 2021/11/19 13:43:17 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 
 	if ((!lst) || (!del))
 		return ;
-	currentnode = *lst;
-	while (currentnode)
+	while (*lst)
 	{
-		ft_lstdelone(currentnode, del);
-		currentnode = currentnode->next;
+		del((*lst)->content);
+		currentnode = *lst;
+		*lst = currentnode->next;
+		free(currentnode);
 	}
 	*lst = NULL;
-	free(currentnode);
 }
