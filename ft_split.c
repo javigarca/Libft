@@ -16,22 +16,22 @@
 static int	ft_countsubs(const char *str, char c)
 {
 	int	i;
-	int	trigger;
+	int	newsub;
 
 	i = 0;
-	trigger = 0;
+	newsub = 0;
 	if (str == 0)
 		return (0);
 	while (*str)
 	{
-		if (*str != c && trigger == 0)
+		if (*str != c && newsub == 0)
 		{
-			trigger = 1;
+			newsub = 1;
 			i++;
 		}
 		else if (*str == c)
 		{
-			trigger = 0;
+			newsub = 0;
 		}
 		str++;
 	}
