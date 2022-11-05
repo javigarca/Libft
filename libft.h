@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <fcntl.h>
 
 typedef struct s_list
 {
@@ -65,5 +66,14 @@ void		ft_lstdelone(t_list *lst, void (*del)(void*));
 void		ft_lstclear(t_list **lst, void (*del)(void*));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+//getnextline
+char		*get_next_line(int fd);
+char		*ft_createline(char *src, int len);
+int			ft_strlent(const char *s);
+int			ft_searchend(char *str, int c);
+char		*ft_feedline(char *str, int len);
+char		*ft_substr_gnl(char *s, int start, int len);
+char		*ft_addbuffer(char *ldr, char *buff);
+int			ft_readfile(int fdr, char **ldr);
 
 #endif
