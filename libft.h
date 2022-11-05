@@ -12,6 +12,7 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# define BUFFER_SIZE 2048
 
 # include <unistd.h>
 # include <stdlib.h>
